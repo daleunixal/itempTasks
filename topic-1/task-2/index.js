@@ -12,6 +12,17 @@
  * @returns удвоенный массив
  */
  function calculateDoubleArray(array) {
+    const set = new Set(array);
+    if(set.has(0) && set.size === 1){
+       return []
+    }
+    set.delete(0);
+    const res = []
+    Array.from(set.entries()).forEach((value) => {
+        res.push(value[1]);
+        res.push(value[1]);
+    })
+    return res;
 }
 
 module.exports.calculateDoubleArray = calculateDoubleArray;
